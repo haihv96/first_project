@@ -11,12 +11,22 @@ en:
     home: "home"
     rails_logo: "Rails logo"
     sign_up_now: "Sign up now!"
+    logout: "Log out"
+    settings: "Settings"
+    profile: "Profile"
+    signup: "Sign up"
+    create: "Create"
+    change_password: "Change password"
+    permission_denied: "Permission denied!"
+    delete: "Delete"
+    view: "View"
   layouts:
     footer:
       rails_book: "Ruby on Rails Tutorial"
       author: "Michael Hartl"
     header:
       app_name: "Sample app"
+      users: "Users manager"
   static_pages:
     about:
       content: "wellcome to about page"
@@ -31,3 +41,34 @@ en:
       content: "wellcome to help page"
   content:
     base_title: "Ruby on Rails Tutorial Sample App"
+  activerecord:
+    errors:
+      models:
+        user:
+          attributes:
+            name:
+              blank: "can't be blank !"
+  signup:
+    success: "create account success, please check your email to active account !"
+  login:
+    error: "Invail Email/password !"
+    require_login: "Login first !"
+    require_activation: "Please check email to active this account!"
+    activated: "%{email} is actived, Login now! "
+  logout:
+    success: "Logout success !"
+  manager:
+    users:
+      create_success: "create user success!"
+  mailer:
+    activation: "Account Activation"
+    password_reset: "Reset Password"
+  password_resets:
+    sent_mail: "Please check email to get link reset password"
+    email_not_found: "Email not found"
+    success: "Reset password success. Log in now with new password!"
+  microposts:
+    create_success: "a micropost create success"
+    delete_success: "a micropost deleted"
+  picture:
+    too_large: "file should be less than 5MB"

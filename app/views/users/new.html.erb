@@ -1,2 +1,8 @@
-<h1></h1>
-<p></p>
+<% provide :form_url, users_path %>
+<% provide :form_name, t("create_user") %>
+<% provide :submit_name, t("words.create") %>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= render "new_form" %>
+  </div>
+</div>

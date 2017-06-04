@@ -1,0 +1,23 @@
+<h1><%= yield :form_name %></h1>
+    <%= form_for @user, url: yield(:form_url) do |f| %>
+    <%= render "shared/error_message", object: @user %>
+    <%= f.label :name %>
+    <%= f.text_field :name, class: "form-control" %>
+    
+    <%= f.label :email %>
+    <%= f.text_field :email, class: "form-control" %>
+    
+    <%= f.label :password %>
+    <%= f.password_field :password, class: "form-control" %>
+    
+    <%= f.label :password_confirmation %>
+    <%= f.password_field :password_confirmation, class: "form-control" %>
+    <% if logged_in? && current_user.admin? %>
+        <%= f.label :role %>
+        <%= f.select :role,
+          [%w(User user), %w(Admin admin)],
+          {}, {class: "form-control"}
+        %>
+    <% end %>
+    <%= f.submit yield(:submit_name), class: "btn btn-success" %>
+<% end %>

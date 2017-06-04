@@ -1,0 +1,17 @@
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <h1>Reset Password</h1>
+    <%= form_for @user,
+      url: password_reset_path(@user.reset_token, email: @user.email) do |f| %>
+        <%= render "shared/error_message" %>
+        
+        <%= f.label "new password" %>
+        <%= f.password_field :password, class: "form-control" %>
+        
+        <%= f.label "re new password" %>
+        <%= f.password_field :password_confirmation, class: "form-control" %>
+        
+        <%= f.submit t("words.change_password"), class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>

@@ -1,0 +1,15 @@
+<table class="table table-bordered">
+  <thead>
+  <tr>
+    <th>Id</th>
+    <th>Name</th>
+    <th>Email</th>
+    <th>View</th>
+    <th>Delete</th>
+  </tr>
+  </thead>
+  <tbody>
+  <%= render @users %>
+  </tbody>
+</table>
+<%= paginate @users, theme: "twitter-bootstrap-3" %>

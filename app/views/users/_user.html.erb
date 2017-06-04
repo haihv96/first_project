@@ -1,0 +1,8 @@
+<tr>
+  <td><%= user.id %></td>
+  <td><%= gravatar_for(user, 40) %> <%= user.name %></td>
+  <td><%= user.email %></td>
+  <td><%= link_to t("words.view"), user_path(user.id) %></td>
+  <td><%= link_to t("words.delete"),
+                  user_path(user.id), method: :delete, data: {confirm: true} %></td>
+</tr>
