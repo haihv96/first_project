@@ -15,6 +15,10 @@ en:
     sign_up: "Sign up"
     confirmation: "Confirmation"
     create_my_account: "Create my account"
+    log_out: "Log out"
+    profile: "Profile"
+    users: "Users"
+    account: "Account"
   layouts:
     footer:
       rails_book: "Ruby on Rails Tutorial"
@@ -42,3 +46,11 @@ en:
   shared:
     error_messages:
       error_title: "The form contains"
+  sessions:
+    create:
+      success: "Welcome %{name} to sample app"
+      error: "Invalid email/password combination"
+    destroy:
+      success: "Logout success"
+  login:
+    require: "Login to continue"
