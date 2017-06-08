@@ -11,6 +11,10 @@ en:
     home: "home"
     rails_logo: "Rails logo"
     sign_up_now: "Sign up now!"
+    error: "error"
+    sign_up: "Sign up"
+    confirmation: "Confirmation"
+    create_my_account: "Create my account"
   layouts:
     footer:
       rails_book: "Ruby on Rails Tutorial"
@@ -31,3 +35,10 @@ en:
       content: "wellcome to help page"
   content:
     base_title: "Ruby on Rails Tutorial Sample App"
+  users:
+    create:
+      success: "Create account success!"
+      error: "You have some error!"
+  shared:
+    error_messages:
+      error_title: "The form contains"
