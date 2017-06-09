@@ -6,7 +6,7 @@
         <li><%= link_to t("words.home"), root_path %></li>
         <li><%= link_to t("words.help"), help_path %></li>
         <% if logged_in? %>
-          <li><%= link_to t("words.users"), "#" %></li>
+          <li><%= link_to t("words.users"), users_path %></li>
           <li class="dropdown">
             <%= link_to "#", class: "dropdown-toggle",
               "data-toggle": "dropdown" do %>
@@ -14,6 +14,10 @@
             <% end %>
             <ul class="dropdown-menu">
               <li><%= link_to t("words.profiles"), current_user %></li>
+              <li class="divider"></li>
+              <li><%= link_to t("words.change_password"),
+                password_edit_users_path %>
+              </li>
               <li class="divider"></li>
               <li>
                 <%= link_to t("words.log_out"), logout_path, method: :delete %>

@@ -10,10 +10,16 @@ User.delete_all
 
 User.create name: "Hoàng Hải",
   email: "hai.hp.96@gmail.com",
-  password: "123456"
+  password: "123456",
+  role: 1
 
 100.times do |index|
   User.create name: FFaker::NameVN.name,
     email: "example-#{index+1}@railstutorial.org",
-    password: "123456"
+    address: FFaker::AddressUK.street_address,
+    birthday: FFaker::Time.between(10.years.ago, Time.now),
+    phone: FFaker::PhoneNumberAU.phone_prefix,
+    gender: Random.rand(0..2),
+    password: "123456",
+    role: 0
 end
