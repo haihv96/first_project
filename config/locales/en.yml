@@ -47,6 +47,8 @@ en:
     error_messages:
       error_title: "The form contains"
   sessions:
+    new:
+      remember_me: "Remember me on this computer"
     create:
       success: "Welcome %{name} to sample app"
       error: "Invalid email/password combination"
