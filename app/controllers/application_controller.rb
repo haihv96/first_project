@@ -1,12 +1,17 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   include SessionsHelper
+  include UsersHelper
 
   def logged_in_user
     unless logged_in?
       flash[:danger] = t "login.require"
       redirect_to login_path
     end
+  end
+
+  def is_admin?
+    render_404 unless current_user.admin?
   end
 
   def logged_out_user
@@ -22,6 +27,6 @@ class ApplicationController < ActionController::Base
   end
 
   def render_422
-    render file: "#{Rails.root}/public/404.html", layout: false, status: 422
+    render file: "#{Rails.root}/public/422.html", layout: false, status: 422
   end
 end

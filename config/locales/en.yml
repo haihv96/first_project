@@ -19,6 +19,20 @@ en:
     profile: "Profile"
     users: "Users"
     account: "Account"
+    view: "View"
+    edit: "Edit"
+    delete: "Delete"
+    all_users: "All users"
+    change_password: "Change password"
+    update_account: "Update account"
+    id: "Id"
+    name: "Name"
+    email: "Email"
+    action: "Action"
+    create_account: "Create account"
+    gender: "Gender"
+    birthday: "Birthday"
+    address: "Address"
   layouts:
     footer:
       rails_book: "Ruby on Rails Tutorial"
@@ -43,6 +57,16 @@ en:
     create:
       success: "Create account success!"
       error: "You have some error!"
+    destroy:
+      success: "Delete success user email: %{email}"
+    update:
+      success: "Update account success!"
+    update_password:
+      current_password:
+        blank: "can't blank"
+        not_match: "not match"
+      password:
+        blank: "can't blank"
   shared:
     error_messages:
       error_title: "The form contains"
@@ -56,3 +80,6 @@ en:
       success: "Logout success"
   login:
     require: "Login to continue"
+  user_mailer:
+    change_password:
+      content: "Your password has been change"

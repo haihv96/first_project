@@ -1,0 +1,42 @@
+<% provide :title, t("words.edit") %>
+<h1><%= t "words.edit" %></h1>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_for @user do |f| %>
+      <%= render "shared/error_messages", object: @user %>
+
+      <%= f.label :name %>
+      <%= f.text_field :name, class: "form-control" %>
+
+      <%= f.label :phone %>
+      <%= f.text_field :phone, class: "form-control" %>
+
+      <%= f.label :address %>
+      <%= f.text_field :address, class: "form-control" %>
+
+      <%= f.label :birthday %><br>
+      <div class="form-inline">
+        <%= f.date_field :birthday, class: "date-select form-control" %>
+      </div>
+      <%= f.label :gender %>
+      <%= f.select :gender, User.genders.keys.to_a,
+        {}, {class: "form-control"} %>
+
+      <% if current_user.admin? %>
+        <%= f.label :email %>
+        <%= f.email_field :email, class: "form-control" %>
+
+        <%= f.label :role %>
+        <%= f.select :role,
+          User.roles.keys.to_a, {}, {class: "form-control"} %>
+
+        <%= f.label :password %>
+        <%= f.password_field :password, class: "form-control" %>
+
+        <%= f.label :password_confirmation, t("words.confirmation") %>
+        <%= f.password_field :password_confirmation, class: "form-control" %>
+      <% end %>
+      <%= f.submit t("words.update_account"), class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>

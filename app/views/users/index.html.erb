@@ -1,0 +1,21 @@
+<% provide :title, t("words.all_users") %>
+<h1><%= t("words.all_users") %></h1>
+<% if current_user.admin? %>
+  <%= link_to t("words.create_account"), new_user_path,
+    class: "btn btn-primary" %>
+<% end %>
+<table class="table">
+  <thead class="thead-inverse">
+  <tr>
+    <th><%= t "words.id" %></th>
+    <th><%= t "words.name" %></th>
+    <th><%= t "words.email" %></th>
+    <th><%= t "words.action" %></th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <%= render @users %>
+  </tbody>
+</table>
+<%= paginate @users, theme: "twitter-bootstrap-3" %>

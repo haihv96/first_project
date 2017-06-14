@@ -2,10 +2,23 @@
 <div class="row">
   <aside class="col-md-4">
     <section class="user_info">
-      <h1>
-        <%= gravatar_for @user %>
-        <%= @user.name %>
-      </h1>
+      <%= gravatar_for @user, size: 200 %>
+      <strong class="text-info"><%= t "words.name" %></strong>
+      <span class="info"><%= @user.name %></span>
+      <strong class="text-info"><%= t "words.email" %></strong>
+      <span class="info"><%= @user.email %></span>
+      <strong class="text-info"><%= t "words.birthday" %></strong>
+      <span class="info"><%= @user.birthday %></span>
+      <strong class="text-info"><%= t "words.gender" %></strong>
+      <span class="info"><%= @user.gender %></span>
+      <strong class="text-info"><%= t "words.address" %></strong>
+      <span class="info"><%= @user.address %></span>
     </section>
+  </aside>
+  <aside class="col-md-12">
+    <div class="col-md-4">
+      <%= link_to t("words.edit"),
+        edit_user_path(@user), class: "btn btn-primary" %>
+    </div>
   </aside>
 </div>
