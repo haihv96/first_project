@@ -13,4 +13,5 @@ Rails.application.routes.draw do
       patch "password/update", action: :update_password
     end
   end
+  resources :account_activations, only: [:edit, :update]
 end

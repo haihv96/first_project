@@ -1,10 +1,10 @@
 class User < ApplicationRecord
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 
-  attr_accessor :remember_token, :current_password
+  attr_accessor :remember_token, :current_password, :activation_token
 
-  enum role: {admin: 1, basic: 0}
-  enum gender: {female: 0, male: 1, other: 2}
+  enum role: [:user, :admin]
+  enum gender: [:female, :male, :other]
 
   validates :name, presence: true,
     length: {maximum: Settings.user.max_length_name}
@@ -19,6 +19,7 @@ class User < ApplicationRecord
   validates :current_password, presence: true, allow_nil: true
 
   before_save :downcase_email
+  before_create :create_activation_digest
 
   scope :order_id, -> {order id: :ASC}
 
@@ -37,10 +38,10 @@ class User < ApplicationRecord
     end
   end
 
-  def authenticated? remember_token
-    digest = self.send "remember_digest"
+  def authenticated? attribute, token
+    digest = self.send "#{attribute}_digest"
     return false unless digest.present?
-    BCrypt::Password.new(digest).is_password? remember_token
+    BCrypt::Password.new(digest).is_password? token
   end
 
   def remember
@@ -56,17 +57,27 @@ class User < ApplicationRecord
     UserMailer.change_password(self).deliver_now
   end
 
+  def send_activation_email
+    UserMailer.account_activation(self).deliver_now
+  end
+
+  def activate
+    update_columns activated: true, activation_digest: nil,
+      activated_at: Time.zone.now
+  end
+
+  def activated?
+    self.activated
+  end
+
   private
 
   def downcase_email
-    self.email = email.downcase
+    email.downcase!
   end
 
-  def is_update_password?
-    return false
-  end
-
-  def is_not_update_password?
-    return true unless is_update_password?
+  def create_activation_digest
+    self.activation_token = User.new_token
+    self.activation_digest = User.digest activation_token
   end
 end
