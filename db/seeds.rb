@@ -11,6 +11,7 @@ User.delete_all
 User.create name: "Hoàng Hải",
   email: "hai.hp.96@gmail.com",
   password: "123456",
+  activated: true,
   role: 1
 
 100.times do |index|

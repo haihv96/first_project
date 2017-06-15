@@ -74,6 +74,7 @@ en:
   sessions:
     new:
       remember_me: "Remember me on this computer"
+      forgot_password: "Forgot password"
     create:
       success: "Welcome %{name} to sample app"
       error:
@@ -91,6 +92,8 @@ en:
       content: "Activation account"
     password_reset:
       content: "Password Reset"
+      title: "Password reset"
+      to_reset: "To reset your password click the link below:"
     account_activation:
       title: "Sample"
       mail:
@@ -99,3 +102,27 @@ en:
   account_activations:
     edit:
       success: "Activate account success, Login now!"
+  password_resets:
+    new:
+      title: "Forgot password"
+      submit: "Submit"
+    create:
+      success: "Email sent with password reset instructions"
+      error: "Email address not found"
+    check_expiration:
+      error: "Password reset has expired."
+    update:
+      success: "Change password success, Login now!"
+      error: "Something error."
+    edit:
+      title: "Reset password"
+      submit: "Update password"
+  user_mailer:
+    password_reset:
+      error: "Password must present!"
+      link_to: "Reset password"
+      exp: "This link will expire in two hours."
+      content: "If you did not request your password to be reset, please ignore this email and     your password will stay as it is."
+  user:
+    password_present:
+      error: "Must present"
