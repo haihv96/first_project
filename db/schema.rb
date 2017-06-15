@@ -20,6 +20,9 @@ ActiveRecord::Schema.define(version: 20170608115831) do
     t.date "birthday"
     t.integer "gender"
     t.integer "role", default: 0, null: false
+    t.datetime "activated_at"
+    t.string "activation_digest"
+    t.boolean "activated", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "password_digest"

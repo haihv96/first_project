@@ -33,6 +33,7 @@ en:
     gender: "Gender"
     birthday: "Birthday"
     address: "Address"
+    hi: "Hi"
   layouts:
     footer:
       rails_book: "Ruby on Rails Tutorial"
@@ -55,7 +56,7 @@ en:
     base_title: "Ruby on Rails Tutorial Sample App"
   users:
     create:
-      success: "Create account success!"
+      success: "Please check your email to activate your account"
       error: "You have some error!"
     destroy:
       success: "Delete success user email: %{email}"
@@ -75,7 +76,10 @@ en:
       remember_me: "Remember me on this computer"
     create:
       success: "Welcome %{name} to sample app"
-      error: "Invalid email/password combination"
+      error:
+        activated: "Account not activated. Check your email for the
+        activation link."
+        password: "Invalid email/password combination"
     destroy:
       success: "Logout success"
   login:
@@ -83,3 +87,15 @@ en:
   user_mailer:
     change_password:
       content: "Your password has been change"
+    activation_account:
+      content: "Activation account"
+    password_reset:
+      content: "Password Reset"
+    account_activation:
+      title: "Sample"
+      mail:
+        content: "Welcome to the Sample App! Click on the link below to activate your account:"
+      activate: "Activate"
+  account_activations:
+    edit:
+      success: "Activate account success, Login now!"
