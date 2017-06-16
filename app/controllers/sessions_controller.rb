@@ -27,11 +27,12 @@ class SessionsController < ApplicationController
       flash.now[:danger] = t ".error.password"
       render :new
     end
+  end
 
-    def destroy
-      log_out
-      flash[:success] = t ".success"
-      redirect_to login_path
-    end
+  def destroy
+    log_out
+    flash[:success] = t ".success"
+    redirect_to login_path
   end
 end
+

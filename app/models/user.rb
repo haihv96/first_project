@@ -1,7 +1,8 @@
 class User < ApplicationRecord
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 
-  attr_accessor :remember_token, :current_password, :activation_token
+  attr_accessor :remember_token, :current_password,
+    :activation_token, :reset_token
 
   enum role: [:user, :admin]
   enum gender: [:female, :male, :other]
@@ -61,6 +62,10 @@ class User < ApplicationRecord
     UserMailer.account_activation(self).deliver_now
   end
 
+  def send_password_reset_email
+    UserMailer.password_reset(self).deliver_now
+  end
+
   def activate
     update_columns activated: true, activation_digest: nil,
       activated_at: Time.zone.now
@@ -68,6 +73,23 @@ class User < ApplicationRecord
 
   def activated?
     self.activated
+  end
+
+  def create_reset_digest
+    self.reset_token = User.new_token
+    update_columns reset_digest: User.digest(reset_token),
+      reset_sent_at: Time.zone.now
+  end
+
+  def password_reset_expired?
+    reset_sent_at < Settings.user.password_reset_expire.hours.ago
+  end
+
+  def password_present? password
+    unless password.present?
+      errors[:password] << I18n.t("user.password_present.error")
+    end
+    return true unless errors.any?
   end
 
   private
