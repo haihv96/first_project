@@ -7,6 +7,8 @@ class User < ApplicationRecord
   enum role: [:user, :admin]
   enum gender: [:female, :male, :other]
 
+  has_many :microposts
+
   validates :name, presence: true,
     length: {maximum: Settings.user.max_length_name}
   validates :email, presence: true,
@@ -90,6 +92,10 @@ class User < ApplicationRecord
       errors[:password] << I18n.t("user.password_present.error")
     end
     return true unless errors.any?
+  end
+
+  def feed
+    Micropost.feed_by_user id
   end
 
   private

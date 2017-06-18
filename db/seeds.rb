@@ -24,3 +24,8 @@ User.create name: "Hoàng Hải",
     password: "123456",
     role: 0
 end
+
+1000.times do |index|
+  Micropost.create content: FFaker::HealthcareIpsum.phrase,
+    user_id: Random.rand(1..100)
+end
