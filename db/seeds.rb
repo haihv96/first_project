@@ -14,7 +14,7 @@ User.create name: "Hoàng Hải",
   activated: true,
   role: 1
 
-100.times do |index|
+10.times do |index|
   User.create name: FFaker::NameVN.name,
     email: "example-#{index+1}@railstutorial.org",
     address: FFaker::AddressUK.street_address,
@@ -25,7 +25,12 @@ User.create name: "Hoàng Hải",
     role: 0
 end
 
-1000.times do |index|
+100.times do |index|
   Micropost.create content: FFaker::HealthcareIpsum.phrase,
-    user_id: Random.rand(1..100)
+    user_id: Random.rand(1..10)
+end
+
+100.times do |index|
+  Relationship.create follower_id: Random.rand(1..10),
+    followed_id: Random.rand(1..10)
 end
