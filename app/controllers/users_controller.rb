@@ -17,6 +17,8 @@ class UsersController < ApplicationController
   end
 
   def show
+    @microposts = @user.microposts.order_date
+      .page(params[:page]).per Settings.microposts.per_page
   end
 
   def edit_password

@@ -50,6 +50,7 @@ en:
       first_content: "This is the home page for the"
       sub_title_first: "Ruby on Rails Tutorial"
       sub_content: "sample application."
+      micropost: "Micropost Feed"
     help:
       content: "wellcome to help page"
   content:
@@ -68,9 +69,17 @@ en:
         not_match: "not match"
       password:
         blank: "can't blank"
+    show:
+      micropost: "Microposts"
   shared:
     error_messages:
       error_title: "The form contains"
+    micropost_form:
+      content: "Compose new micropost..."
+      post: "Post"
+    user_info:
+      view_profile: "view my profile"
+      micropost: "micropost"
   sessions:
     new:
       remember_me: "Remember me on this computer"
@@ -126,3 +135,17 @@ en:
   user:
     password_present:
       error: "Must present"
+  microposts:
+    create:
+      success: "Micropost created!"
+    destroy:
+      success: "Micropost deleted"
+    micropost:
+      posted: "Posted"
+      ago: "ago."
+      delete: "Delete"
+      confirm: "You sure?"
+    max_size_picture: Maximum file size is 5MB. Please choose a smaller file.
+  micropost:
+    picture_size:
+      error: "should be less than 5MB"
