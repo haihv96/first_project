@@ -20,9 +20,13 @@
           edit_user_path(@user), class: "btn btn-primary" %>
       </div>
     <% end %>
+    <section class="stats">
+      <%= render "shared/stats" %>
+    </section>
   </aside>
 
   <aside class="col-md-6">
+    <%= render "follow_form" if logged_in? %>
     <% if @user.microposts.any? %>
       <h3> <%= t(".micropost") %> (<%= @user.microposts.size %>)</h3>
       <ol class="microposts">

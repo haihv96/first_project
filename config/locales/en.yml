@@ -71,6 +71,17 @@ en:
         blank: "can't blank"
     show:
       micropost: "Microposts"
+    following:
+      title: "Following"
+    followers:
+      title: "Followers"
+    show_follow:
+      micropost: "Microposts"
+      view_profile: "view my profile"
+    unfollow:
+      unfollow: "Unfollow"
+    follow:
+      follow: "Follow"
   shared:
     error_messages:
       error_title: "The form contains"
@@ -80,6 +91,9 @@ en:
     user_info:
       view_profile: "view my profile"
       micropost: "micropost"
+    stats:
+      following: "following"
+      followers: "followers"
   sessions:
     new:
       remember_me: "Remember me on this computer"

@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
-  before_action :load_user, only: [:show, :destroy, :edit, :update]
+  before_action :load_user, except: [:index, :new, :create,
+    :edit_password, :update_password]
   before_action :logged_in_user, except: [:new, :create]
   before_action :can_create, only: [:new, :create]
   before_action :can_edit, only: [:edit, :update]
@@ -64,6 +65,18 @@ class UsersController < ApplicationController
     else
       render_404
     end
+  end
+
+  def following
+    @title = t ".title"
+    @users = @user.following.page(params[:page]).per Settings.follows.per_page
+    render :show_follow
+  end
+
+  def followers
+    @title = t ".title"
+    @users = @user.followers.page(params[:page]).per Settings.follows.per_page
+    render :show_follow
   end
 
   private

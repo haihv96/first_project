@@ -12,8 +12,12 @@ Rails.application.routes.draw do
       get "password/edit", action: :edit_password
       patch "password/update", action: :update_password
     end
+    member do
+      get :following, :followers
+    end
   end
   resources :account_activations, only: [:edit, :update]
   resources :password_resets, except: [:index, :show, :destroy]
   resources :microposts, only: [:create, :destroy]
+  resources :relationships, only: [:create, :destroy]
 end
